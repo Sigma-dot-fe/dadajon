@@ -21,9 +21,10 @@ jobs:
 
       - name: Build Debug APK
         run: gradle assembleDebug
+        working-directory: "./dadajon (1)"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: "./dadajon (1)/app/build/outputs/apk/debug/app-debug.apk"
