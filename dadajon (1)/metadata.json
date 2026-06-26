@@ -1,0 +1,6 @@
+{
+  "name": "Dadajon",
+  "description": "Dadajon va Onajon uchun maxsus sovg'a ilovasi. Ular uchun tabriklar va oilaviy rasmlar galereyasi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
