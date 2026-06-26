@@ -16,6 +16,34 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Generate debug keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore "./dadajon (1)/debug.keystore" \
+            -alias androiddebugkey \
+            -keyalg RSA -keysize 2048 \
+            -validity 10000 \
+            -storepass android \
+            -keypass android \
+            -dname "CN=Android Debug,O=Android,C=US"
+
+      - name: Create google-services.json
+        run: |
+          cat > "./dadajon (1)/app/google-services.json" << 'EOF'
+          {
+            "project_info": { "project_id": "placeholder" },
+            "client": [{
+              "client_info": {
+                "mobilesdk_app_id": "1:000000000000:android:0000000000000000",
+                "android_client_info": { "package_name": "com.example" }
+              },
+              "api_key": [{ "current_key": "placeholder" }],
+              "services": {}
+            }],
+            "configuration_version": "1"
+          }
+          EOF
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
